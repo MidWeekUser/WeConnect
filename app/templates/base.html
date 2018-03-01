@@ -7,6 +7,7 @@
     <title>{% block title %}{% endblock %}</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
   </head>
@@ -20,20 +21,37 @@
             <div class="collapse navbar-collapse justify-content-end" id="nav-content">   
                 <ul class="navbar-nav pull-right">
                     <li class="nav-item" role="Home Page"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item" role="About WeConnect"><a class="nav-link" href="/about">About</a></li>
-                    <li class="nav-item" role="registernewusers"><a class="nav-link" href="/business_catalog">Business Catalogue</a></li>
-                    <li class="nav-item" role="registernewusers"><a class="nav-link" href="/business_profile">Business Profile</a></li>
-                    <li class="nav-item" role="registernewusers"><a class="nav-link" href="/business_update">Update Business Profile</a></li>
-                    <li class="nav-item" role="registernewbusiness"><a class="nav-link" href="/business_registration">Add New business</a></li>
-                    <li class="nav-item" role="loginnewusers"><a class="nav-link" href="/user_login">Log In</a></li>
-                    <li class="nav-item" role="registernewusers"><a class="nav-link" href="/user_registration">Sign Up</a></li>
+                    <li class="nav-item" role="About WeConnect"><a class="nav-link" href="/about">| About</a></li>
+                    <li class="nav-item" role="loginnewusers"><a class="nav-link" href="/user_login">| Log In</a></li>
+                    <li class="nav-item" role="registernewusers"><a class="nav-link" href="/user_registration">| Sign Up</a></li>
+                    <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Business Options
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="Preview">
+                            <a class="dropdown-item" href="/business_profile">| Business Profile</a>
+                            <a class="dropdown-item" href="/business_update">| Update Business Profile</a>
+                            <a class="dropdown-item" href="/business_registration">| Add New business</a>
+                            <a class="dropdown-item"href="/business_catalog">| Business Catalogue</a>                            
+                            </div>
+                    </li>
+                    <!--<li class="nav-item" role="registernewusers"><a class="nav-link" href="/business_catalog">| Business Catalogue</a></li>
+                    <li class="nav-item" role="registernewusers"><a class="nav-link" href="/business_profile">| Business Profile</a></li>
+                    <li class="nav-item" role="registernewusers"><a class="nav-link" href="/business_update">| Update Business Profile</a></li>
+                    <li class="nav-item" role="registernewbusiness"><a class="nav-link" href="/business_registration">| Add New business</a></li>-->
+                    
+                    
                 </ul>
             </div>
         </nav>
       </div>
       {% block body %}
       {% endblock %}
-
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <footer class="footer">
         <p class="pull-right">© 2018 WeConnect</p>
       </footer>
