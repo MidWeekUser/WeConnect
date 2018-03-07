@@ -1,12 +1,22 @@
-# app/__init__.py
-
 from flask import Flask
+from flask_restplus import Resource, Api
+from .api.user_management import RegisterUsers
+try:
+    from WeConnect.config import DevelopmentConfig, TestingConfig
+except Exception:
+    from config import DevelopmentConfig, TestingConfig
 
-# Initialize the app
-app = Flask(__name__, instance_relative_config=True)
+def app_factory(environment):
+    app = Flask(__name__)
+    api = Api(app)
+    
+    if environment == 'DevelopmentConfig':
+        app.config.from_object(DevelopmentConfig)
+        
+    elif environment == 'TestingConfig':
+        app.config.from_object(TestingConfig)
 
-# Load the views
-from app import views
+    api.add_resource(RegisterUsers, '/api/auth/registeruser')
 
-# Load the config file
-app.config.from_object('config')
+
+    return app
