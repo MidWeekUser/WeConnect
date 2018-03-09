@@ -1,0 +1,4 @@
+{
+  "app/tests/test_user_management.py::usercase": true,
+  "app/tests/test_user_management.py::usercase::test_user_registration": true
+}
