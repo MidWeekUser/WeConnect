@@ -7,7 +7,7 @@ except Exception:
     from WeConnect.app.models import UserManagement, BusinessManagement
 
 user_data = []
-# login_info = []
+login_info = []
 userid = uuid.uuid1
 UserObj = UserManagement()
 
