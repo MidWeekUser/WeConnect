@@ -1,24 +1,22 @@
+import uuid
 from flask import Flask, jsonify, request
 from flask_restplus import Resource, Api, fields
 try:
-    from app.models import UserManagement
+    from app.models import UserManagement, BusinessManagement
 except Exception:
-    from WeConnect.app.models import UserManagement
-
+    from WeConnect.app.models import UserManagement, BusinessManagement
 
 user_data = []
 # login_info = []
-
-
+userid = uuid.uuid1
 UserObj = UserManagement()
 
 class RegisterUsers(Resource):
     
-    
-    
     def post(self):
         
         user_data = request.json
+        user_id = userid
         email = user_data['email']
         firstname = user_data['firstname']
         secondname = user_data['secondname']
@@ -26,7 +24,7 @@ class RegisterUsers(Resource):
         password = user_data['password']
         confirmpassword = user_data['confirmpassword']
 
-        status = UserObj.registernewuser(email, firstname, secondname, username, password, confirmpassword)
+        status = UserObj.registernewuser(user_id, email, firstname, secondname, username, password, confirmpassword)
         
         return status
     
@@ -34,23 +32,14 @@ class RegisterUsers(Resource):
         response = []
         for user in UserObj.user_data:
             response.append(user.todict())
-        return response
+        return jsonify(response)
+
 
 class LogInUsers(Resource):
     def post(self):
-        return {'Alert': 'Post Successful'}
+        return {'Alert': 'Post Successful'}, 201
     def get(self):
-        return {'Alert': 'Get Successful'}
+        return {'Alert': 'Get Successful'}, 200
 
-class RegisterNewBusiness(Resource):
-    def post(self):
-        return {'Alert': 'Post Successful'}
+
     
-
-# class Login(Resource):
-#     from app.models import UserManagement
-#     #@api.expect(logininfo)
-#     def post(self):
-#         #login_info.append(api.payload)
-#         login_info.append(logininfo)
-#         return login_info
